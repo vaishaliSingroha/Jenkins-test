@@ -1,0 +1,81 @@
+Warning: could not import ng40plot: ImportError('No module named matplotlib',)
+Open NG40 logger: Name = working_testplan_gxgy_200731_201218-1; ID = 1
+WARNING: 1 or more instance(s) of test list already active!
+
+**** 1. Starting regression test system **************
+
+Connect to shell facebook in path /home/ng40/magma on 192.168.60.81 as ng40
+Load call scenario facebook /home/ng40/magma/testplan_gxgy.conf
+++++ Precondition: testplan testcases loaded
+++++ Precondition: facebook up & running
+++++ Precondition: status of LTE ENBs
+cmd enb_mme_state 0 0: ENB(0) MME(0) Status: active
+
+**** 2. Executing regression test cases **************
+
+**** TOTAL number of test cases:17
+
+cmd setmessagedelay gyocs 2500: 
+cmd setmessagedelay gxpcrf 2500: 
+
+Run test case (1) on facebook: gx_gy_combined_ul()
+Verdict(gx_gy_combined_ul) = VERDICT_PASS
+Run test case (2) on facebook: gx_gy_combined_dl()
+Verdict(gx_gy_combined_dl) = VERDICT_PASS
+Run test case (3) on facebook: gx_gy_combined_01()
+Verdict(gx_gy_combined_01) = VERDICT_PASS
+Run test case (4) on facebook: gx_gy_combined_02()
+Verdict(gx_gy_combined_02) = VERDICT_PASS
+Run test case (5) on facebook: gx_gy_combined_03()
+Verdict(gx_gy_combined_03) = VERDICT_PASS
+Run test case (6) on facebook: gx_gy_combined_04()
+Verdict(gx_gy_combined_04) = VERDICT_FAIL
+protocolstatistics(verdict):VERDICT_FAIL
+verification fail:  ((sent_Detach_Req_=76) == (received_Detach_Acc_=61))  => False
+Run test case (7) on facebook: gx_gy_combined_05()
+Verdict(gx_gy_combined_05) = VERDICT_PASS
+Run test case (8) on facebook: gx_gy_combined_06()
+Verdict(gx_gy_combined_06) = VERDICT_PASS
+Run test case (9) on facebook: gx_gy_combined_08()
+Verdict(gx_gy_combined_08) = VERDICT_FAIL
+protocolstatistics(verdict):VERDICT_FAIL
+verification fail:  ((gx_CC_Input_Octets_111=26000) == (pktgen_sent_bytes_111=30000) * 5 / 10) => False
+Run test case (10) on facebook: gx_gy_combined_09()
+Verdict(gx_gy_combined_09) = VERDICT_FAIL
+protocolstatistics(verdict):VERDICT_FAIL
+verification fail:  ((gx_CC_Input_Octets_113=25000) == (pktgen_sent_bytes_113=15000) * 5 / 5) => False
+Run test case (11) on facebook: gx_gy_combined_10()
+Verdict(gx_gy_combined_10) = VERDICT_FAIL
+protocolstatistics(verdict):VERDICT_FAIL
+verification fail:  ((gy_received_CCR_T_3=2) >= (received_Detach_Acc_=3))  => False
+verification fail:  ((gy_CC_Input_Octets_3=14000) == (pktgen_sent_bytes_114=15000) * 5 / 5) => False
+Run test case (12) on facebook: gx_gy_combined_11()
+Verdict(gx_gy_combined_11) = VERDICT_PASS
+Run test case (13) on facebook: gx_gy_combined_12()
+Verdict(gx_gy_combined_12) = VERDICT_PASS
+Run test case (14) on facebook: gx_gy_combined_14()
+Verdict(gx_gy_combined_14) = VERDICT_FAIL
+protocolstatistics(verdict):VERDICT_FAIL
+verification fail:  ((sent_Detach_Req_=2) >= (received_Attach_Acc_=3))  => False
+verification fail:  ((gx_received_CCR_T=0) >= (received_Detach_Acc_=2))  => False
+verification fail:  ((gx_sent_RAR_RI=3) 	   == (gx_received_RAA_RI=0))  => False
+verification fail:  ((gx_received_RAA_fail=3)== 0)  => False
+verification fail:  ((pktrcv_received_raw_bytes_109=15000) == (pktgen_sent_bytes_109=30000) * 2 / 3)  => False
+Run test case (15) on facebook: gx_gy_combined_24()
+Verdict(gx_gy_combined_24) = VERDICT_FAIL
+protocolstatistics(verdict):VERDICT_FAIL
+verification fail:  ((gy_CC_Input_Octets=1000) == 0 ) => False
+Run test case (16) on facebook: gx_gy_combined_26()
+Verdict(gx_gy_combined_26) = VERDICT_PASS
+Run test case (17) on facebook: gx_gy_combined_27()
+Verdict(gx_gy_combined_27) = VERDICT_FAIL
+protocolstatistics(verdict):VERDICT_FAIL
+verification fail:  ((gy_received_CCR_I=0) >= (received_Attach_Acc_=3))  => False
+verification fail:  ((gy_received_CCR_T=0) >= (received_Detach_Acc_=3))  => False
+
+**** 3. Finished regression test cases **************
+
+Testlist verdict = VERDICT_FAIL
+shutdown
+Closing NG40 logger: Name = working_testplan_gxgy_200731_201218-1; ID = 1
+ >>>>>>>> close <<<<<<<<<
